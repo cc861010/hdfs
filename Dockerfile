@@ -1,17 +1,17 @@
 FROM ubuntu:18.04 
 
-RUN echo " \ 
-deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse \
-deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse \
-deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse \
-deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse \
-deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse \
-deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse \
-deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse \
-deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse \
-deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse \
-deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse \
-" > /etc/apt/sources.list
+#RUN echo " \ 
+#deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse \
+#deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse \
+#deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse \
+#deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse \
+#deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse \
+#deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse \
+#deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse \
+#deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse \
+#deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse \
+#deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse \
+#" > /etc/apt/sources.list
 
 
 RUN apt-get update && apt install -y openjdk-8-jdk openssh-server vim wget \
@@ -22,7 +22,8 @@ RUN apt-get update && apt install -y openjdk-8-jdk openssh-server vim wget \
 	&& echo "UserKnownHostsFile /dev/null" >>  ~/.ssh/config
 
 
-RUN wget http://apache.claz.org/hadoop/common/current2/hadoop-2.9.2.tar.gz
+#RUN wget http://apache.claz.org/hadoop/common/current2/hadoop-2.9.2.tar.gz
+RUN wget http://mirrors.ibiblio.org/apache/hadoop/common/current2/hadoop-2.9.2.tar.gz
 RUN tar -xvf hadoop-2.9.2.tar.gz
 RUN rm hadoop-2.9.2.tar.gz
 
