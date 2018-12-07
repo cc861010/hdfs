@@ -28,6 +28,9 @@ RUN rm hadoop-2.9.2.tar.gz
 
 WORKDIR /hadoop-2.9.2
 COPY ./etc ./etc
-RUN bin/hdfs namenode -format
 
-CMD service ssh start && sbin/start-dfs.sh
+#RUN bin/hdfs namenode -format
+
+#RUN sbin/start-dfs.sh
+
+entrypoint service ssh start && /bin/bash
