@@ -1,0 +1,2 @@
+# hdfs
+one node hadoop 
