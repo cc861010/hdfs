@@ -1,0 +1,4 @@
+#!/bin/bash
+docker build -t hdfs .
+cd /tmp
+docker run --rm -p 80020:80020 -p 9000:9000 -it hdfs bash
