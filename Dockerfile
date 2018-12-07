@@ -20,9 +20,14 @@ RUN apt-get update && apt install -y openjdk-8-jdk openssh-server vim wget \
         && chmod 0600 ~/.ssh/authorized_keys \
 	&& echo "StrictHostKeyChecking no" > ~/.ssh/config \
 	&& echo "UserKnownHostsFile /dev/null" >>  ~/.ssh/config
+
+
 RUN wget http://apache.claz.org/hadoop/common/current2/hadoop-2.9.2.tar.gz
-RUN echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64" >> ~/.bashrc
 RUN tar -xvf hadoop-2.9.2.tar.gz
 RUN rm hadoop-2.9.2.tar.gz
 
+WORKDIR /hadoop-2.9.2
+COPY ./etc ./etc
+RUN bin/hdfs namenode -format
 
+CMD service ssh start && sbin/start-dfs.sh

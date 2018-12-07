@@ -21,6 +21,8 @@
 # set JAVA_HOME in this file, so that it is correctly defined on
 # remote nodes.
 
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+
 # The java implementation to use.
 export JAVA_HOME=${JAVA_HOME}
 
